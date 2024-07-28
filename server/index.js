@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cookieParses());
 app.use(
   cors({
-    origin: ["https://cool-tech-eny4gner7-syam-kumars-projects.vercel.app", "http://localhost:5173"],
+    origin: ["https://cool-tech.vercel.app", "http://localhost:5173"],
     methods: ["POST", "GET", "DELETE", "PUT"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
