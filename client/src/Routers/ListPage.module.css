@@ -1,0 +1,663 @@
+@import url("../index.css");
+
+
+.mainContainer {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #ebf8fa;
+}
+
+.sideSection{
+  padding-top: 7rem;
+  width: 20%;
+  background: linear-gradient(135deg, rgba(49, 68, 117, 0.9), rgba(0, 131, 143, 0.9)), url('../assets/HomePageImg.jpg');
+  background-size: cover;
+  background-blend-mode: overlay;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto; /* Optional: Allows the sidebar to scroll if the content is taller than the viewport */
+  top: 0;
+  left: 0;
+  z-index: 50;
+  margin-top: 7.5rem;
+  border-right: 3px solid rgb(177, 175, 175);
+}
+
+.contentSection {
+  margin-left: 20%; 
+  width: 80%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #ebf8fa, #c4d8e4);
+}
+
+.emptyContainer{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  color: #5f5f5f;
+  font-weight: bold;
+}
+
+.sideBtns{
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  padding: 1rem;
+  margin-top: -5rem;
+}
+
+.sideBtns button {
+  padding: 0.2rem 0.4rem;
+  margin-bottom: 1rem;
+  color: rgb(255, 255, 255);
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: transparent; 
+  
+}
+
+.button:hover{
+  background-color: #4e6497;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+/* Specific styles for the active button */
+.sideBtns .activeButton {
+  background-color: #021442; /* Darker background for active button */
+  color: white;
+  outline: none;
+}
+
+.bottomSection{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 5rem;
+  background-color: #091f55;
+  color: white;
+  z-index: 100;
+}
+
+.bottomBtns{
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 100vw;
+}
+
+.bottomBtns button {
+  height: 100%;
+  width: 7rem;
+  padding: 0.2rem 0;
+  color: rgb(255, 255, 255);
+  border: none;
+  background-color: transparent; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottomBtns .activeButton2 {
+  background-color: #0d013b; /* Darker background for active button */
+  color: white;
+  outline: none;
+}
+
+.container {
+  position: relative;
+  padding: 16px;
+  margin-top: .2rem;
+  padding-bottom: 12rem;
+}
+
+.fixedOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fixedForm {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  margin: 0 24px;
+}
+
+.closeButton {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 16px;
+  width: 56px;
+  height: 56px;
+}
+
+.closeButton img {
+  width: 100%;
+  height: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 24rem;
+  max-width: 40rem;
+  background-color: white;
+  padding: 32px;
+  border-radius: 8px;
+}
+
+.inputField {
+  border-bottom: 1px solid #d1d5db;
+  outline: none;
+  margin-bottom: 8px;
+}
+
+.addButton {
+  margin-top: 16px;
+  background-color: #314475;
+  color: white;
+  padding: .5rem 0;
+  margin-top: 16px;
+}
+
+.addButton:hover{
+  background-color: #3f548a;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+
+.dateHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8px;
+  margin-top: 16px;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.dateHeader span {
+  text-align: center;
+  font-weight: 500;
+  color: #6b7280;
+  padding-bottom: 8px;
+  margin-top: 20px;
+}
+
+.tableContainer {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #e5e7eb;
+}
+
+.tableHeader {
+  background-color: #acc0f3;
+}
+
+
+.tableHeader th {
+  padding: 12px;
+  text-align: left;
+  font-size: 10px;
+  font-weight: 500;
+  color: #6b7280;
+  text-transform: uppercase;
+  border: 1px solid #d1d5db;
+}
+
+.tableBody {
+  background-color: #d9e0f1;
+  color: rgb(54, 49, 49);
+}
+
+.stocksTr {
+  border-bottom: 1px solid #d1d5db;
+}
+
+.tableHeader th{
+  color: rgb(53, 52, 52);
+  border-color: rgb(136, 136, 136);
+}
+
+.tableBody td{
+  background-color: #d9e0f1;
+  border-color: rgb(136, 136, 136);
+  padding: 1rem;
+}
+
+.stocksTr{
+  border: 1px solid rgb(136, 136, 136);
+}
+
+
+.tableBody td {
+  padding: .2rem;
+  padding-left: .6rem;
+  white-space: wrap;
+  background-color: #d9e0f1;
+  border-right: 1px solid rgb(136, 136, 136);
+  
+}
+
+.headerNo {
+  max-width:1rem;
+}
+
+.tableName{
+  width: 50%;
+}
+
+.statusButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  max-width: 20rem;
+  margin-right: 0;
+  border: none;
+}
+
+.statusButtons button{
+  margin-left: 1rem;
+}
+
+.cmdButton,
+.removeButton {
+  padding: 8px;
+  font-size: 10px;
+  font-weight: 500;
+  
+}
+
+.cmdButton {
+  background-color: #d1fae5;
+  color: #065f46;
+  font-size: .7rem;
+  border-radius: 5px;
+}
+
+.cmdButton:hover{
+  color: #d1fae5;
+  background-color: #065f46;
+  transition:all .3s ease;
+}
+
+.removeButton {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  font-size: .7rem;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.removeButton:hover{
+  background-color: #b91c1c;
+  color: #fee2e2;
+  transition: all 0.3s ease;
+}
+
+
+.addTodoContainer {
+  background-color: #1e40af;
+  color: white;
+  padding: 16px;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  margin-left: 20%;
+}
+
+.addTodoButton {
+  background-color: #314475;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+}
+
+.addTodoButton:hover {
+  background-color: #314475;
+}
+
+.contactBtn{
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+  z-index: 1000;
+}
+
+.contactBtn button {
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: #314475;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: none;
+}
+
+.contactBtn img{
+  width: 40%;
+}
+
+.contactBtn button::before {
+  content: "";
+  position: absolute;
+  border: 1px solid #314475;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  border-radius: 50%;
+  animation: pulse 1.5s linear infinite
+}
+
+.contactBtn button::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgb(152, 178, 218);
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  border-radius: 50%;
+  animation: pulse 2s linear infinite;
+  animation-delay: 0.3s
+}
+
+.bottomSection{
+  display: none;
+}
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ebf8fa; 
+  
+}
+
+
+@media (max-width: 768px) {
+  .emptyContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    color: #5f5f5f;
+    font-weight: bold;
+    z-index: 99;
+  }
+
+  .bottomSection{
+    display: block;
+  }
+  .contactBtn{
+    bottom: 12%;
+  }
+  .sideSection{
+    display: none;
+  }
+  .mainContainer{
+    margin: 0 !important;
+  }
+
+  .contentSection{
+    margin: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 0;
+  }
+  .container {
+    padding: 4px;
+    background: linear-gradient(135deg, #ebf8fa, #c4d8e4);
+    position: absolute;
+    top: 10%;
+    left: 0;
+    margin: 0;
+    padding: 0 1rem;
+    padding-bottom: 50rem;
+  }
+
+  .fixedForm {
+    margin: 0 6px;
+    padding: 8px;
+  }
+
+  .form {
+    width: 100%;
+    max-width: 280px;
+    padding: 8px;
+  }
+
+  .inputField {
+    margin-bottom: 2px;
+  }
+
+  .addButton {
+    margin-top: 4px;
+  }
+
+  .tableHeader{
+    background-color: #acc0f3;
+  }
+
+  .dateHeader {
+    flex-direction: row;
+  }
+
+  .dateHeader span {
+    font-size: 1rem;
+  }
+
+  .headerNo{
+    max-width: 2rem;
+    padding-left: .2rem;
+  }
+
+  .tableHeader th{
+    color: rgb(53, 52, 52);
+    border-color: rgb(136, 136, 136);
+  }
+
+  .tableBody td{
+    background-color: #d9e0f1;
+    border-color: rgb(136, 136, 136);
+    padding: 1rem;
+  }
+
+  .stocksTr{
+    border: 1px solid rgb(136, 136, 136);
+  }
+
+  .tableHeader th,
+  .tableBody td {
+    font-size: 1rem;
+    padding: 4px;
+  }
+
+  .statusButtons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    padding: .3rem .4rem;
+  }
+
+  .cmdButton,
+  .removeButton {
+    padding: 2px;
+    font-size: 0.9rem;
+    margin: 1px;
+  }
+
+  .addTodoContainer {
+    padding: 4px;
+  }
+
+  .addTodoButton {
+    padding: 4px;
+    font-size: 0.9rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .emptyContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    color: #5f5f5f;
+    font-weight: bold;
+    z-index: 99;
+  }
+
+  .bottomSection{
+    display: block;
+  }
+  .contactBtn{
+    bottom: 12%;
+  }
+  .sideSection{
+    display: none;
+  }
+  .mainContainer{
+    margin: 0 !important;
+  }
+
+  .contentSection{
+    margin: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 0;
+  }
+  .container {
+    padding: 4px;
+    background: linear-gradient(135deg, #ebf8fa, #c4d8e4);
+    position: absolute;
+    top: 10%;
+    left: 0;
+    margin: 0;
+    padding: 0 1rem;
+    padding-bottom: 50rem;
+  }
+
+  .fixedForm {
+    margin: 0 6px;
+    padding: 8px;
+  }
+
+  .form {
+    width: 100%;
+    max-width: 280px;
+    padding: 8px;
+  }
+
+  .inputField {
+    margin-bottom: 2px;
+  }
+
+  .addButton {
+    margin-top: 4px;
+  }
+
+  .tableHeader{
+    background-color: #acc0f3;
+  }
+
+  .dateHeader {
+    flex-direction: row;
+  }
+
+  .dateHeader span {
+    font-size: 1rem;
+  }
+
+  .headerNo{
+    max-width: 2rem;
+    padding-left: .2rem;
+  }
+
+  .tableHeader th{
+    color: rgb(53, 52, 52);
+    border-color: rgb(136, 136, 136);
+  }
+
+  .tableBody td{
+    background-color: #d9e0f1;
+    border-color: rgb(136, 136, 136);
+    padding: 1rem;
+  }
+
+  .stocksTr{
+    border: 1px solid rgb(136, 136, 136);
+    background-color: #d9e0f1;
+  }
+
+  .tableHeader th,
+  .tableBody td {
+    font-size: 1rem;
+    padding: 4px;
+  }
+
+  .statusButtons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    padding: .3rem .4rem;
+  }
+
+  .cmdButton,
+  .removeButton {
+    padding: 2px;
+    font-size: 0.9rem;
+    margin: 1px;
+  }
+
+  .addTodoContainer {
+    padding: 4px;
+  }
+
+  .addTodoButton {
+    padding: 4px;
+    font-size: 0.9rem;
+  }
+}

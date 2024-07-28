@@ -1,0 +1,222 @@
+.emptyContainer{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  color: #5f5f5f;
+  font-weight: bold;
+}
+
+
+.flexRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 0.5rem; 
+    padding-right: 0.5rem;
+    margin-top: 4rem; 
+    margin-bottom: .3rem;
+  }
+  
+  .tableHeader {
+    text-align: center;
+    font-weight: 500;
+    color: #6b7280; /* Tailwind's gray-500 */
+    padding-bottom: 0.5rem; /* 2px converted to rem */
+    margin-top: .3rem;
+     /* 5px converted to rem */
+  }
+
+
+  .tableContainer {
+    width: 100%;
+    border-collapse: collapse; 
+  }
+  
+  .tableHead {
+    background-color: rgb(240, 240, 240);
+  }
+  
+  .tableRow {
+    border-bottom: 1px solid rgb(136, 136, 136);
+  }
+  
+  .tableCell {
+    padding: 0.75rem; /* 3px converted to rem */
+    text-align: left;
+    font-size: 0.75rem; /* Tailwind's text-xs */
+    letter-spacing: 0.1em;
+    border: 1px solid rgb(136, 136, 136);
+    white-space: nowrap;
+    background-color: rgb(240, 240, 240);
+  }
+
+  .tableBodyCell2 {
+    padding: 0.75rem;
+    text-align: left;
+    border: 1px solid rgb(136, 136, 136);
+    white-space: nowrap;
+    background-color: #f9fafb;
+    color: rgb(34, 32, 32);
+  }
+
+  .tableBodyCellNo{
+    padding: 0.75rem;
+    text-align: left;
+    background-color: #f9fafb;
+    width: 1rem;
+    border: 1px solid rgb(136, 136, 136);
+    color: rgb(34, 32, 32);
+  }
+
+  .tableBodyCellName{
+    padding: 0.75rem;
+    text-align: left;
+    background-color: #f9fafb;
+    color: rgb(34, 32, 32);
+    width: 70%;
+    border-color: rgb(136, 136, 136);
+  }
+
+  .tableHeader th{
+    color: rgb(53, 52, 52);
+    border-color: rgb(136, 136, 136);
+  }
+
+  .tableBody td{
+    background-color: #d9e0f1;
+    border-color: rgb(136, 136, 136);
+  }
+
+  .stocksTr{
+    border-color: rgb(136, 136, 136);
+  }
+
+  .tableHeader th{
+    background-color: #acc0f3;
+  }
+  
+ 
+  
+  @media (max-width: 768px) {
+    .emptyContainer{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: .5rem;
+      color: #5f5f5f;
+      font-weight: bold;
+    }
+
+
+    .container {
+      padding: 4px;
+      background: linear-gradient(135deg, #ebf8fa, #c4d8e4);
+      position: absolute;
+      top: 10%;
+      left: 0;
+      margin-top: 1rem;
+      padding: 0 1rem;
+      padding-bottom: 50rem;
+      width: 100vw;
+    }
+  
+    .flexRow{
+      margin-top: 1rem;
+    }
+
+    
+  .tableHeader th{
+    color: rgb(53, 52, 52);
+    border-color: rgb(136, 136, 136);
+  }
+
+  .tableBody td{
+    background-color: #d9e0f1;
+    border-color: rgb(136, 136, 136);
+  }
+
+  .stocksTr{
+    border-color: rgb(136, 136, 136);
+  }
+
+  .tableHeader th{
+    background-color: #acc0f3;
+  }
+
+  .tableCell{
+    font-size: 1rem;
+  }
+
+  .tableBodyCellName{
+    border-bottom: 1px solid rgb(136, 136, 136);
+  }
+
+  .contentSection{
+    margin: 0 !important;
+  }
+  }
+
+  @media (max-width: 480px){
+
+    .emptyContainer{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: .5rem;
+      color: #5f5f5f;
+      font-weight: bold;
+    }
+
+
+    .container {
+      padding: 4px;
+      background: linear-gradient(135deg, #ebf8fa, #c4d8e4);
+      position: absolute;
+      top: 10%;
+      left: 0;
+      margin-top: 1rem;
+      padding: 0 1rem;
+      padding-bottom: 50rem;
+    }
+  
+    .flexRow{
+      margin-top: 1rem;
+    }
+
+    
+  .tableHeader th{
+    color: rgb(53, 52, 52);
+    border-color: rgb(136, 136, 136);
+  }
+
+  .tableBody td{
+    background-color: #d9e0f1;
+    border-color: rgb(136, 136, 136);
+  }
+
+  .stocksTr{
+    border-color: rgb(136, 136, 136);
+  }
+
+  .tableHeader th{
+    background-color: #acc0f3;
+  }
+
+  .tableCell{
+    font-size: 1rem;
+  }
+
+  .tableBodyCellName{
+    border-bottom: 1px solid rgb(136, 136, 136);
+  }
+
+  .contentSection{
+    margin: 0 !important;
+  }
+  }
+  

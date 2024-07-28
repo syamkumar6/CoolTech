@@ -1,0 +1,68 @@
+.header{
+   background: linear-gradient(135deg, rgba(49, 68, 117, 0.9), rgba(0, 131, 143, 0.9)), url('../assets/HomePageImg.jpg');
+   background-size: cover;
+   background-blend-mode: overlay;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    height: 7rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 100;
+}
+
+.headerDiv{
+   position: relative;
+   
+}
+
+.titleFirst{
+   color: #edf2f4;
+   font-size: 2.3rem;
+   margin-left: 1rem;
+   font-weight: bold;
+   font-family: 'DM Serif Text', serif;
+}
+
+.titleSecond{
+   color: #abc2ec;
+}
+
+.subHead{
+  position: absolute;
+  top: 70%;
+  left: 10%;
+  color: #abc2ec;
+  font-family: 'Permanent Marker', cursive;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.logBtnDiv{
+   display: flex;
+   flex-direction: row;
+   margin-right: 2rem;
+}
+
+.logOutBtn{
+   color: white;
+}
+
+@media (max-width: 480px){
+
+   .header{
+      height: 5rem;
+      margin-bottom: -2rem;
+   }
+   .logBtnDiv{
+      margin-right: .2rem;
+   }
+
+   .titleFirst{
+      font-size: 1.5rem;
+   }
+}
