@@ -1,30 +1,42 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-require('dotenv').config()
-const cookieParses = require("cookie-parser");
+require('dotenv').config();
+const cookieParser = require("cookie-parser");
 
 const app = express();
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 
-const MarerialsRouter = require("./routes/materialsRouter");
+const MaterialsRouter = require("./routes/materialsRouter");
 const UsersRouter = require("./routes/UsersRouter");
-const StocksRouter = require("./routes/StocksRouter")
-const HistoryRouter = require("./routes/historyRouter")
+const StocksRouter = require("./routes/StocksRouter");
+const HistoryRouter = require("./routes/historyRouter");
 
 app.use(express.json());
-app.use(cookieParses());
-app.options('*', cors({
-  origin: ["https://cool-tech.vercel.app", "http://localhost:5173"],
-  methods: ["POST", "GET", "DELETE", "PUT"],
-  credentials: true,
-  allowedHeaders: ["Content-Type", "Authorization"],
-}));
+app.use(cookieParser());
 
-app.use("/materials", MarerialsRouter);
+// Log middleware execution
+app.use((req, res, next) => {
+  console.log(`Request URL: ${req.url}`);
+  next();
+});
+
+// Ensure CORS middleware is applied
+app.use(
+  cors({
+    origin: ["https://cool-tech.vercel.app", "http://localhost:5173"],
+    methods: ["POST", "GET", "DELETE", "PUT"],
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
+app.options('*', cors());
+
+app.use("/materials", MaterialsRouter);
 app.use("/users", UsersRouter);
 app.use("/stocks", StocksRouter);
-app.use("/history", HistoryRouter)
+app.use("/history", HistoryRouter);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
@@ -37,7 +49,5 @@ main()
 async function main() {
   const db_url = process.env.DB_URL;
   const urlWithPassword = db_url.replace("<password>", process.env.DB_PASSWORD);
-  await mongoose.connect(urlWithPassword);
-
-  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
+  await mongoose.connect(urlWithPassword, { useNewUrlParser: true, useUnifiedTopology: true });
 }
