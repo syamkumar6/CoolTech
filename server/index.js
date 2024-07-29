@@ -4,13 +4,13 @@ const cors = require("cors");
 require('dotenv').config()
 const cookieParses = require("cookie-parser");
 
+const app = express();
+const port = process.env.PORT || 3000
+
 const MarerialsRouter = require("./routes/materialsRouter");
 const UsersRouter = require("./routes/UsersRouter");
 const StocksRouter = require("./routes/StocksRouter")
 const HistoryRouter = require("./routes/historyRouter")
-
-const app = express();
-const port = process.env.PORT || 3000
 
 app.use(express.json());
 app.use(cookieParses());
@@ -19,7 +19,6 @@ app.use(
     origin: ["https://cool-tech.vercel.app", "http://localhost:5173"],
     methods: ["POST", "GET", "DELETE", "PUT"],
     credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
