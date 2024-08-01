@@ -15,8 +15,16 @@ const HistoryRouter = require("./routes/historyRouter");
 app.use(express.json());
 app.use(cookieParser());
 
+const allowedOrigins = ["https://cool-tech.vercel.app"];
+
 app.use(cors({
-  origin: ["https://cool-tech.vercel.app"],
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ["POST", "GET", "DELETE", "PUT"],
   credentials: true,
   allowedHeaders: ["Content-Type", "Authorization"],
@@ -29,15 +37,6 @@ app.options('*', (req, res) => {
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.header('Access-Control-Allow-Credentials', 'true');
   res.sendStatus(200);
-});
-
-// Ensure CORS middleware is applied
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', allowedOrigins.includes(req.headers.origin) ? req.headers.origin : '');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Credentials', 'true');
-  next();
 });
 
 app.use("/materials", MaterialsRouter);
@@ -58,4 +57,3 @@ async function main() {
   const urlWithPassword = db_url.replace("<password>", process.env.DB_PASSWORD);
   await mongoose.connect(urlWithPassword, { useNewUrlParser: true, useUnifiedTopology: true });
 }
-
