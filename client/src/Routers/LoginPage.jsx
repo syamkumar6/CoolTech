@@ -38,9 +38,7 @@ function LoginPage() {
       axios.defaults.withCredentials = true
       const res = await axios.post(`${baseURL}/users/login`, {
         number: number,
-      }, {
-      withCredentials: true 
-    });
+      }, { timeout: 15000 });
       console.log(res.data);
       setNumber("");
       navigate("/")
