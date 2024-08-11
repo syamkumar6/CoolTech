@@ -57,7 +57,7 @@ function ListPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.post("http://localhost:3000/users/verify").then((res) => {
+    axios.post(`${import.meta.env.VITE_BASE_URL}/users/verify`).then((res) => {
       if (res.data.Status === "Verify-Success") {
         dispatch(addAuth(true));
         dispatch(addUser(res.data.user));
