@@ -23,10 +23,10 @@ export async function loader() {
   axios.defaults.withCredentials = true;
   try {
     const [materialRes, userRes, stockRes, historyRes] = await Promise.all([
-      axios.get("http://localhost:3000/materials"),
-      axios.get("http://localhost:3000/users"),
-      axios.get("http://localhost:3000/stocks"),
-      axios.get("http://localhost:3000/history"),
+      axios.get(`${import.meta.env.VITE_BASE_URL}/materials`),
+      axios.get(`${import.meta.env.VITE_BASE_URL}/users`),
+      axios.get(`${import.meta.env.VITE_BASE_URL}/stocks`),
+      axios.get(`${import.meta.env.VITE_BASE_URL}/history`),
     ]);
 
     const data1 = materialRes.data;
