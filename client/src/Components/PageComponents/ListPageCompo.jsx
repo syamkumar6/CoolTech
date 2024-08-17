@@ -10,16 +10,17 @@ import { addSingleHistory } from "../../Readux/Features/HistorySlice";
 import emptyIcon from "../../assets/empty.svg";
 import PulseLoader from "react-spinners/PulseLoader";
 
-
 function ListPageCompo({ items }) {
-  const baseURL = import.meta.env.VITE_BASE_URL
+  const baseURL = import.meta.env.VITE_BASE_URL;
   const dispatch = useDispatch();
   const [itemForm, setItemForm] = useState(false);
   const [itemName, setItemName] = useState("");
   const [itemQty, setItemQty] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const user = useSelector((state) => state.authData.userData);
-  const [spinner, setSpinner] = useState(false) 
+  const [spinner, setSpinner] = useState(false);
+  const [isSideSectionOpen, setIsSideSectionOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
   const stocks = useSelector((state) => state.stocksData.stocks);
 
   const groupedData = items.reduce((acc, item) => {
@@ -27,6 +28,16 @@ function ListPageCompo({ items }) {
     acc[item.date].unshift(item);
     return acc;
   }, {});
+
+  const handleStocksTrClick = (item) => {
+    if (
+      user?.role === "author" ||
+      (user?.name === item.author && user.role !== "author")
+    ) {
+      setSelectedItem(item);
+      setIsSideSectionOpen(true);
+    }
+  };
 
   const handleAddItem = async (e) => {
     e.preventDefault();
@@ -44,9 +55,9 @@ function ListPageCompo({ items }) {
       setItemQty("");
       return;
     }
-    
+
     try {
-      setSpinner(true)
+      setSpinner(true);
       const res = await axios.post(`${baseURL}/materials`, {
         name: itemName,
         qty: itemQty,
@@ -57,7 +68,7 @@ function ListPageCompo({ items }) {
       setItemQty("");
       dispatch(addSingleItem(res.data));
       setItemForm(false);
-      setSpinner(false)
+      setSpinner(false);
       toast.success("Item Added");
     } catch (err) {
       console.error(err);
@@ -104,6 +115,7 @@ function ListPageCompo({ items }) {
       await axios
         .delete(`${baseURL}/materials/` + itemId)
         .then(() => {
+          setIsSideSectionOpen(false);
           toast.success("Item Removed ");
           console.log("Item Removed");
         })
@@ -192,8 +204,11 @@ function ListPageCompo({ items }) {
                   onChange={(e) => setItemQty(e.target.value)}
                 />
                 <button type="submit" className={styles.addButton}>
-                  {spinner === true ? <PulseLoader size={15} color={"#fff"} />
-                  : "Add"}
+                  {spinner === true ? (
+                    <PulseLoader size={15} color={"#fff"} />
+                  ) : (
+                    "Add"
+                  )}
                 </button>
               </form>
             </div>
@@ -248,12 +263,61 @@ function ListPageCompo({ items }) {
                 onChange={(e) => setItemQty(e.target.value)}
               />
               <button type="submit" className={styles.addButton}>
-              {spinner === true ? <PulseLoader size={15} color={"white"}/>
-                  : "Add"}
+                {spinner === true ? (
+                  <PulseLoader size={15} color={"white"} />
+                ) : (
+                  "Add"
+                )}
               </button>
             </form>
           </div>
         </>
+      )}
+
+      {isSideSectionOpen && (
+        <div
+          className={`${styles.SideSection} ${
+            isSideSectionOpen ? styles.open : ""
+          }`}
+        >
+          <div className={styles.sideBg}>&nbsp;</div>
+          <div className={styles.SideDivBtns}>
+            <div className={styles.closeButtonContainer}>
+              <button
+                onClick={() => setIsSideSectionOpen(false)}
+                className={styles.closeButton2}
+              >
+                <img src={closeIcon} alt="" />
+              </button>
+            </div>
+            <div className={styles.content}>
+              <div className={styles.flexCol}>
+                <span>Name : {selectedItem.name}</span>
+                <span>Qty : {selectedItem.qty}</span>
+              </div>
+              {user?.role === "author" && (
+                <div className={styles.btnDiv}>
+                  <button onClick={() => handleUpdateHistory(selectedItem)}
+                    className={styles.closeBtn}>
+                    Close
+                  </button>
+                  <button onClick={() => handleRemoveItem(selectedItem._id)}
+                    className={styles.removeBtn2}>
+                    Remove
+                  </button>
+                </div>
+              )}
+              {user?.name === selectedItem.author && user.role !== "author" && (
+                <button
+                  onClick={() => handleRemoveItem(selectedItem._id)}
+                  className={styles.removeBtn}
+                >
+                  Remove
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
       )}
 
       {Object.entries(groupedData)
@@ -276,7 +340,11 @@ function ListPageCompo({ items }) {
               </thead>
               <tbody className={styles.tableBody}>
                 {items.map((item, index) => (
-                  <tr key={index} className={styles.stocksTr}>
+                  <tr
+                    onClick={() => handleStocksTrClick(item)}
+                    key={index}
+                    className={styles.stocksTr}
+                  >
                     <td className={styles.noTh}>{index + 1}</td>
                     <td className={styles.tableName}>{item.name}</td>
                     <td>{item.qty}</td>
@@ -298,15 +366,14 @@ function ListPageCompo({ items }) {
                           </button>
                         </div>
                       )}
-                      {user?.name === item.author &&
-                        user.role !== "author" && (
-                          <button
-                            onClick={() => handleRemoveItem(item._id)}
-                            className={styles.removeButton}
-                          >
-                            Remove
-                          </button>
-                        )}
+                      {user?.name === item.author && user.role !== "author" && (
+                        <button
+                          onClick={() => handleRemoveItem(item._id)}
+                          className={styles.removeButton}
+                        >
+                          Remove
+                        </button>
+                      )}
                     </td>
                   </tr>
                 ))}

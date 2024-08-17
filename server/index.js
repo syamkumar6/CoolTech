@@ -15,7 +15,7 @@ const HistoryRouter = require("./routes/historyRouter");
 app.use(express.json());
 app.use(cookieParser());
 
-const allowedOrigins = ["https://cool-tech.vercel.app"];
+const allowedOrigins = ["http://localhost:5173"];
 
 app.use(cors({
   origin: (origin, callback) => {

@@ -1,5 +1,5 @@
 .header{
-   background: linear-gradient(135deg, rgba(49, 68, 117, 0.9), rgba(0, 131, 143, 0.9)), url('../assets/HomePageImg.jpg');
+   background: radial-gradient(circle at 85.4% 50.8%, rgb(13, 64, 192) 0%, rgb(3, 22, 65) 74.2%);
    background-size: cover;
    background-blend-mode: overlay;
     display: flex;
@@ -22,7 +22,11 @@
 }
 
 .titleFirst{
-   color: #edf2f4;
+   background: linear-gradient(to bottom, #edf2f4 50%, rgb(182, 199, 243) 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
    font-size: 2.3rem;
    margin-left: 1rem;
    font-weight: bold;
@@ -30,14 +34,18 @@
 }
 
 .titleSecond{
-   color: #abc2ec;
+   background: linear-gradient(to bottom, #edf2f4 50%, rgb(182, 199, 243) 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 }
 
 .subHead{
   position: absolute;
   top: 70%;
   left: 10%;
-  color: #abc2ec;
+  color: #edf2f4;
   font-family: 'Permanent Marker', cursive;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
