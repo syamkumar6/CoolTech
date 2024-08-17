@@ -194,7 +194,8 @@
 .tableHeader th {
   padding: 12px;
   text-align: left;
-  font-size: 10px;
+  font-size: 0.75rem; 
+  letter-spacing: 0.1em;
   font-weight: 500;
   text-transform: uppercase;
   border: 1px solid #d1d5db;
