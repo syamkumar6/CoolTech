@@ -527,8 +527,9 @@
     font-size: 1rem;
   }
 
-  .tableHeader{
-    background-color: #acc0f3;
+.tableHeader{
+    background-color: #4259ad;
+    color: rgb(255, 255, 255) ;
   }
 
   .headerNo{
@@ -536,8 +537,8 @@
   }
 
   .tableHeader th{
-    color: rgb(100, 99, 99);
     border-color: rgb(136, 136, 136);
+    color: rgb(255, 255, 255);
   }
 
   .tableBody td{
