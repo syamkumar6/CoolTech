@@ -22,11 +22,7 @@
 }
 
 .titleFirst{
-   background: linear-gradient(to bottom, #edf2f4 50%, rgb(182, 199, 243) 50%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
+   color: #edf2f4;
    font-size: 2.3rem;
    margin-left: 1rem;
    font-weight: bold;
@@ -34,11 +30,7 @@
 }
 
 .titleSecond{
-   background: linear-gradient(to bottom, #edf2f4 50%, rgb(182, 199, 243) 50%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
+   color:rgb(182, 199, 243) ;
 }
 
 .subHead{
