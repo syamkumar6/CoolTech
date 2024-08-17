@@ -160,7 +160,7 @@
   }
   }
 
-  @media (max-width: 480px){
+@media (max-width: 480px){
 
     .emptyContainer{
       display: flex;
@@ -190,21 +190,18 @@
 
     
   .tableHeader th{
-    color: rgb(53, 52, 52);
+    background-color: #4259ad;
+    color: rgb(255, 255, 255);
     border-color: rgb(136, 136, 136);
   }
 
   .tableBody td{
-    background-color: #d9e0f1;
+    background-color: #ebeff8;
     border-color: rgb(136, 136, 136);
   }
 
   .stocksTr{
     border-color: rgb(136, 136, 136);
-  }
-
-  .tableHeader th{
-    background-color: #acc0f3;
   }
 
   .tableCell{
