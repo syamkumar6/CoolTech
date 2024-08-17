@@ -11,7 +11,7 @@
 .sideSection{
   padding-top: 7rem;
   width: 20%;
-  background: linear-gradient(135deg, rgba(49, 68, 117, 0.9), rgba(0, 131, 143, 0.9)), url('../assets/HomePageImg.jpg');
+  background: linear-gradient(180deg, rgb(3, 22, 65)  0%, rgb(13, 64, 192) 94.2%);
   background-size: cover;
   background-blend-mode: overlay;
   position: fixed;
@@ -68,11 +68,113 @@
   transition: all .3s ease;
 }
 
-/* Specific styles for the active button */
+
 .sideBtns .activeButton {
-  background-color: #021442; /* Darker background for active button */
+  background-color: #021442; 
   color: white;
   outline: none;
+}
+
+.SideSection {
+  position: fixed;
+  right: -100%;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  transition: right 1s ease-in-out;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SideSection.open {
+  right: 0; 
+  
+}
+
+.sideBg{
+  height: 100%;
+  width: 100%;
+  background-color:  rgba(0, 0, 0, 0.5); 
+  opacity: 0.1;
+}
+
+
+.SideDivBtns{
+  position: fixed;
+  top: 50;
+  right: 50;
+  width: 70%;
+  height: 40%;
+  background-color: rgba(15, 14, 83, 0.6);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: rgb(255, 255, 255);
+  z-index: 100;
+  opacity: 1 !important;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.content{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: -3rem;
+}
+
+.SideDivBtns span{
+  z-index: 100;
+  opacity: 1;
+}
+
+.flexCol{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.5rem;
+  margin-top: -3rem;
+}
+
+.btnDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.removeBtn{
+  background-color: rgb(165, 4, 4);
+  color: white;
+  padding: 1.1rem;
+  margin-top: 3rem;
+  border-radius: 5px;
+}
+
+.removeBtn2{
+  background-color: rgb(165, 4, 4);
+  color: white;
+  padding: 1.1rem;
+  border-radius: 5px;
+}
+
+.closeBtn{
+  background-color: #3c61bd;
+  color: white;
+  padding: 1.1rem;
+  border-radius: 5px;
+}
+
+
+.closeButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.closeButton2{
+  background-color: transparent !important;
+  
 }
 
 .bottomSection{
@@ -298,29 +400,27 @@
 }
 
 .cmdButton {
-  background-color: #d1fae5;
-  color: #065f46;
+  background-color: #3c538b;
+  color: white;
   font-size: .7rem;
   border-radius: 5px;
 }
 
 .cmdButton:hover{
-  color: #d1fae5;
-  background-color: #065f46;
+  background-color: #4660a3;
   transition:all .3s ease;
 }
 
 .removeButton {
-  background-color: #fee2e2;
-  color: #b91c1c;
+  background-color: #b91c1c;
+  color: white;
   font-size: .7rem;
   font-weight: bold;
   border-radius: 5px;
 }
 
 .removeButton:hover{
-  background-color: #b91c1c;
-  color: #fee2e2;
+  background-color: #c92121;
   transition: all 0.3s ease;
 }
 
@@ -536,6 +636,10 @@
 
 @media (max-width: 480px) {
 
+  .showBtn{
+    display: block;
+  }
+
   .emptyContainer{
     display: flex;
     flex-direction: column;
@@ -617,7 +721,7 @@
   }
 
   .tableHeader th{
-    color: rgb(53, 52, 52);
+    color: rgb(100, 99, 99);
     border-color: rgb(136, 136, 136);
   }
 
@@ -638,7 +742,12 @@
     padding: 4px;
   }
 
+  .headerActions{
+    display: none;
+  }
+
   .statusButtons {
+    display: none;
     flex-direction: row;
     justify-content: center;
     gap: 1rem;

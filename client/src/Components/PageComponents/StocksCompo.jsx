@@ -201,10 +201,11 @@ function StocksCompo() {
                       <td className={styles.tableName}>{item.name}</td>
                       <td>{item.qty}</td>
                       <td>{item.user}</td>
-                      <td className={styles.statusButtons}>
+                      
                         {(user?.role === "author" ||
                           (user?.name === item.user &&
                             user?.role !== "author")) && (
+                              <td className={styles.statusButtons}>
                           <div className={styles.tableBtns}>
                             <button
                               onClick={() => handleRemoveItem(item._id)}
@@ -213,8 +214,9 @@ function StocksCompo() {
                               Close
                             </button>
                           </div>
+                          </td>
                         )}
-                      </td>
+                      
                     </tr>
                   ))}
                 </tbody>

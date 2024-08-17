@@ -169,7 +169,7 @@ function UsersPageCompo({ users }) {
                       onClick={() => handleChangeStatus(user._id)}
                       className={styles.btn}
                     >
-                      {user.role === "user" ? "Add to Author" : "Add to Users"}
+                      {user.role === "user" ? "Add to Admin" : "Add to User"}
                     </button>
                     <button
                       onClick={() => handleRemoveUser(user._id)}

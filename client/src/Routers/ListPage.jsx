@@ -87,7 +87,7 @@ function ListPage() {
   const handleButtonClick = (componentName) => {
     setActiveComponent(componentName);
   };
-
+ 
   return (
     <main className={styles.mainContainer}>
       <section className={styles.bottomSection}>
@@ -110,7 +110,7 @@ function ListPage() {
             <img src={stockIcon} alt="" /> S Update
           </button>
 
-          {user?.role === "author" && (
+          {user?.name === "Roy Michael" && (
             <button
               className={`${styles.button} ${
                 activeComponent === "users" ? styles.activeButton2 : ""
@@ -151,7 +151,7 @@ function ListPage() {
             Stock Update
           </button>
 
-          {user?.role === "author" && (
+          {user?.name === "Roy Michael" &&(
             <button
               className={`${styles.button} ${
                 activeComponent === "users" ? styles.activeButton : ""

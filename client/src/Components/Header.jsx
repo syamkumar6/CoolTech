@@ -7,6 +7,7 @@ import logOutIcon from "../assets/logOut.svg"
 
 
 function Header() {
+  const baseURL = import.meta.env.VITE_BASE_URL
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const user = useSelector((state) => state.authData.userData);
@@ -14,7 +15,7 @@ function Header() {
 
   const logout = () => {
     axios.defaults.withCredentials = true
-    axios.post("http://localhost:3000/users/logout")
+    axios.post(`${baseURL}/users/logout`)
       .then(res => {
         if (res.data.Status === 'Success') {
           dispatch(addAuth(false))
