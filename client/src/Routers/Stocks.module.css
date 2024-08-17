@@ -190,17 +190,12 @@
   border: 1px solid #e5e7eb;
 }
 
-.tableHeader {
-  background-color: rgb(240, 240, 240);
-}
-
 
 .tableHeader th {
   padding: 12px;
   text-align: left;
   font-size: 10px;
   font-weight: 500;
-  color: #6b7280;
   text-transform: uppercase;
   border: 1px solid #d1d5db;
 }
@@ -224,7 +219,6 @@
 }
 
 .tableHeader th{
-  color: rgb(53, 52, 52);
   border-color: rgb(136, 136, 136);
 }
 
@@ -241,7 +235,8 @@
 }
 
 .tableHeader{
-  background-color: #acc0f3;
+  background-color: #4259ad;
+  color: rgb(255, 255, 255);
 }
 
 
