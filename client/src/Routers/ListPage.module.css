@@ -712,7 +712,8 @@
   }
 
   .tableHeader{
-    background-color: #acc0f3;
+    background-color: #4259ad;
+    color: rgb(255, 255, 255);
   }
 
   .dateHeader {
@@ -729,19 +730,19 @@
   }
 
   .tableHeader th{
-    color: rgb(100, 99, 99);
+    color: rgb(255, 255, 255);
     border-color: rgb(136, 136, 136);
   }
 
   .tableBody td{
-    background-color: #d9e0f1;
+    background-color: #ebeff8;
     border-color: rgb(136, 136, 136);
     padding: 1rem;
   }
 
   .stocksTr{
     border: 1px solid rgb(136, 136, 136);
-    background-color: #d9e0f1;
+    background-color: #ebeff8;
   }
 
   .tableHeader th,
