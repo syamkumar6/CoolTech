@@ -160,6 +160,7 @@
   border-bottom: 1px solid #d1d5db;
   outline: none;
   margin-bottom: 8px;
+  color: #545557;
 }
 
 
@@ -503,8 +504,12 @@
 
   .form {
     width: 100%;
-    max-width: 280px;
+    max-width: 330px;
     padding: 8px;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .inputField {
@@ -512,7 +517,9 @@
   }
 
   .addButton {
-    margin-top: 4px;
+    margin-top: 2rem;
+    width: 70%;
+    align-self: center;
   }
 
   .dateHeader {
