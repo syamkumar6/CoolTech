@@ -42,7 +42,7 @@ function ListPageCompo({ items }) {
   const handleAddItem = async (e) => {
     e.preventDefault();
 
-    if (itemName.length < 2 || itemName.length > 15) {
+    if (itemName.length < 2 || itemName.length > 40) {
       toast.error("Name must be between 2 and 15 characters long.");
       setItemName("");
       setItemQty("");
