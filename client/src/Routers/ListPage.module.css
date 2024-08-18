@@ -284,6 +284,24 @@
   color: #545557;
 }
 
+.suggestionsContainer {
+  position: relative;
+  z-index: 1000;
+}
+
+.suggestionsList {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 10rem;
+  overflow-y: auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  padding-bottom: 1rem;
+} 
+
 .addButton {
   margin-top: 16px;
   background-color: #314475;
@@ -700,6 +718,11 @@
     flex-direction: column;
     gap: 1rem;
   }
+
+  .suggestionsList{
+    max-height: 12rem;
+  }
+
 
   .inputField {
     margin-bottom: 2px;
