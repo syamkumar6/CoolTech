@@ -43,7 +43,7 @@ function ListPageCompo({ items }) {
     e.preventDefault();
 
     if (itemName.length < 2 || itemName.length > 40) {
-      toast.error("Name must be between 2 and 15 characters long.");
+      toast.error("Name must be between 2 and 40 characters long.");
       setItemName("");
       setItemQty("");
       return;
@@ -367,7 +367,6 @@ function ListPageCompo({ items }) {
   const handleNameChange = (e) => {
     const input = e.target.value;
     setItemName(input);
-
     if (input.length > 0) {
       const filteredSuggestions = itemNames.filter((name) =>
         name.toLowerCase().includes(input.toLowerCase())
@@ -378,10 +377,11 @@ function ListPageCompo({ items }) {
     }
   };
 
-  // Handle suggestion click
+  
   const handleSuggestionClick = (suggestion) => {
-    setItemName(suggestion);
+    setItemName(suggestion)
     setSuggestions([]);
+    console.log(suggestions)
   };
 
   const handleRemoveItem = async (itemId) => {
@@ -416,7 +416,7 @@ function ListPageCompo({ items }) {
       console.log(err);
     }
   };
-  console.log("Grouped Data:", groupedData);
+  
 
   if (items.length === 0) {
     return (
@@ -457,7 +457,8 @@ function ListPageCompo({ items }) {
                   value={itemName}
                   onChange={handleNameChange}
                 />
-                {suggestions.length > 0 && (
+                {suggestions.length >0 && (
+                <div className={styles.suggestionsContainer}>
                   <ul className={styles.suggestionsList}>
                     {suggestions.map((suggestion, index) => (
                       <li
@@ -469,6 +470,7 @@ function ListPageCompo({ items }) {
                       </li>
                     ))}
                   </ul>
+                </div>
                 )}
                 <label htmlFor="qty">Qty</label>
                 <input
@@ -506,10 +508,10 @@ function ListPageCompo({ items }) {
               className={styles.closeButton}
             >
               <img src={closeIcon} alt="" />
-            </button>
+            </button> 
             <form onSubmit={handleAddItem} className={styles.form}>
               <label htmlFor="name">Name</label>
-              <input
+              <input  
                 type="text"
                 id="name"
                 className={styles.inputField}
@@ -517,7 +519,8 @@ function ListPageCompo({ items }) {
                 onChange={handleNameChange}
               />
               {suggestions.length > 0 && (
-                <ul className={styles.suggestionsList}>
+                <div className={styles.suggestionsContainer}>
+                <ul className={styles.suggestionsList}> 
                   {suggestions.map((suggestion, index) => (
                     <li
                       key={index}
@@ -528,6 +531,7 @@ function ListPageCompo({ items }) {
                     </li>
                   ))}
                 </ul>
+                </div>
               )}
               <label htmlFor="qty">Qty</label>
               <input
@@ -537,6 +541,7 @@ function ListPageCompo({ items }) {
                 value={itemQty}
                 onChange={(e) => setItemQty(e.target.value)}
               />
+
               <button type="submit" className={styles.addButton}>
                 {spinner === true ? (
                   <PulseLoader size={15} color={"white"} />
@@ -544,6 +549,7 @@ function ListPageCompo({ items }) {
                   "Add"
                 )}
               </button>
+              
             </form>
           </div>
         </>
